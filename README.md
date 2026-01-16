@@ -44,16 +44,20 @@ TBD
 
 ### package manager
 
-add a plugin for java and kotlin.
+add a plugin for java, kotlin, and spring boot.
 
 ```sh
-asdf plugin add kotlin java
 asdf plugin list all kotlin # v2.3.0
+asdf plugin add kotlin
 asdf plugin install kotlin 2.3.0
 
 asdf plugin list all java
-asdf plugin install java # temurin-21.0.9+10.0.LTS
+asdf plugin add java
 asdf install java temurin-21.0.9+10.0.LTS
+
+asdf plugin list all spring-boot
+asdf plugin add spring-boot
+asdf install spring-boot 4.0.0
 ```
 
 set it.
@@ -61,6 +65,7 @@ set it.
 ```sh
 asdf set java temurin-21.0.9+10.0.LTS
 asdf set kotlin 2.3.0
+asdf set spring-boot 4.0.0
 ```
 
 check it.
@@ -68,6 +73,7 @@ check it.
 ```sh
 asdf current java
 asdf current kotlin
+asdf current spring-boot
 ```
 
 ### language server
@@ -95,43 +101,21 @@ set the path for language server in `.vscode`,
 
 ### cli
 
-download `ktor-cli` binary and register path.
+install `spring` cli with `asdf`.
 
 ```sh
-# https://github.com/ktorio/ktor-cli/releases
-
-mkdir $HOME/.ktor
-nano ~/.bashrc
-export PATH=$PATH:$HOME/.ktor
-source ~/.bashrc
+asdf plugin add spring-boot
+asdf install spring-boot 4.0.0
+asdf set spring-boot 4.0.0
 ```
 
-check version.
+scaffold a kotlin spring boot.
 
 ```sh
-ktor version
-```
-
-scaffold a new project.
-
-```sh
-ktor new kuptime
-```
-
-run a http server.
-
-```sh
-ktor dev
-```
-
-or, use `gradlew` to run commands.
-
-```sh
-./gradlew run
-./gradlew build
-./gradlew test
+spring init --bootVersion=4.0.0 --javaVersion=21 --language=kotlin --name=kuptime --type=gradle-project-kotlin --version=0.1.0 --groupId=io.kuptime --artifactId=kuptime --dependencies=web
 ```
 
 ## reference
 
-TBD
+- [spring docs: Installing the Spring Boot CLI](https://docs.spring.io/spring-boot/installing.html#getting-started.installing.cli)
+- [spring docs: Using the CLI](https://docs.spring.io/spring-boot/cli/using-the-cli.html)

@@ -3,7 +3,7 @@
 
 [![Coffee Chat](https://img.shields.io/badge/Coffee_Chat-795548?style=for-the-badge&logo=coffeescript&logoColor=white)](https://forms.gle/QrFAaXgbLnsxywhA7)
 
-# project name
+# kuptime
 
 <div align="center">
 
@@ -42,39 +42,84 @@ TBD
 
 ## setup
 
+### cli
+
+download `ktor-cli` binary and register path.
+
+```sh
+# https://github.com/ktorio/ktor-cli/releases
+
+mkdir $HOME/.ktor
+nano ~/.bashrc
+export PATH=$PATH:$HOME/.ktor
+source ~/.bashrc
+```
+
+check version.
+
+```sh
+ktor version
+```
+
+scaffold a new project.
+
+```sh
+ktor new kuptime
+```
+
+run a http server.
+
+```sh
+ktor dev
+```
+
+or, use `gradlew` to run the server.
+
+```sh
+./gradlew run
+```
+
+### Building & Running
+
+To build or run the project, use one of the following tasks:
+
+| Task                                    | Description                                                          |
+| -----------------------------------------|---------------------------------------------------------------------- |
+| `./gradlew test`                        | Run the tests                                                        |
+| `./gradlew build`                       | Build everything                                                     |
+| `./gradlew buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
+| `./gradlew buildImage`                  | Build the docker image to use with the fat JAR                       |
+| `./gradlew publishImageToLocalRegistry` | Publish the docker image locally                                     |
+| `./gradlew run`                         | Run the server                                                       |
+| `./gradlew runDocker`                   | Run using the local docker image                                     |
+
+
 ### package manager
 
-install `asdf` package manager first.
+add a plugin for java and kotlin.
 
 ```sh
-# download asdf binary from github release page
-# https://github.com/asdf-vm/asdf/releases
-```
+asdf plugin add kotlin java
+asdf plugin list all kotlin # v2.3.0
+asdf plugin install kotlin 2.3.0
 
-check plugins.
-
-```sh
-asdf plugin list
-```
-
-add a plugin for a targeted side project.
-
-```sh
-asdf plugin add [language]
-asdf install [language]
+asdf plugin list all java
+asdf plugin install java # temurin-21.0.9+10.0.LTS
+asdf install java temurin-21.0.9+10.0.LTS
 ```
 
 set it.
 
 ```sh
-asdf set [language] [version]
-asdf reshim [language]
+asdf set java temurin-21.0.9+10.0.LTS
+asdf set kotlin 2.3.0
 ```
 
 check it.
 
 ```sh
-asdf current [language]
+asdf current java
+asdf current kotlin
 ```
 
 ## reference

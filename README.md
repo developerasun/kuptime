@@ -32,13 +32,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum euismod tell
 
 TBD
 
-## installation
-
-TBD
-
 ## getting started
 
-TBD
+run a server with hot reloading.
+
+```sh
+./dev.run.sh
+```
 
 ## setup
 
@@ -119,3 +119,4 @@ spring init --bootVersion=4.0.0 --javaVersion=21 --language=kotlin --name=kuptim
 
 - [spring docs: Installing the Spring Boot CLI](https://docs.spring.io/spring-boot/installing.html#getting-started.installing.cli)
 - [spring docs: Using the CLI](https://docs.spring.io/spring-boot/cli/using-the-cli.html)
+- [kotlin docs: Create a controller](https://kotlinlang.org/docs/jvm-create-project-with-spring-boot.html#create-a-controller)

@@ -42,6 +42,57 @@ TBD
 
 ## setup
 
+### package manager
+
+add a plugin for java and kotlin.
+
+```sh
+asdf plugin add kotlin java
+asdf plugin list all kotlin # v2.3.0
+asdf plugin install kotlin 2.3.0
+
+asdf plugin list all java
+asdf plugin install java # temurin-21.0.9+10.0.LTS
+asdf install java temurin-21.0.9+10.0.LTS
+```
+
+set it.
+
+```sh
+asdf set java temurin-21.0.9+10.0.LTS
+asdf set kotlin 2.3.0
+```
+
+check it.
+
+```sh
+asdf current java
+asdf current kotlin
+```
+
+### language server
+
+install required extensions on vscode first: `Extension Pack for Java` and `Kotlin`.
+
+check java sdk path.
+
+```sh
+asdf where java
+/[your-home]/.asdf/installs/java/temurin-21.0.9+10.0.LTS
+
+asdf where kotlin
+/[your-home]/.asdf/installs/kotlin/2.3.0
+```
+
+set the path for language server in `.vscode`,
+
+```json
+{
+  "java.jdt.ls.java.home": "/[your-home]/.asdf/installs/java/temurin-21.0.9+10.0.LTS",
+  "kotlin.java.home": "/[your-home]/.asdf/installs/java/temurin-21.0.9+10.0.LTS"
+}
+```
+
 ### cli
 
 download `ktor-cli` binary and register path.
@@ -73,53 +124,12 @@ run a http server.
 ktor dev
 ```
 
-or, use `gradlew` to run the server.
+or, use `gradlew` to run commands.
 
 ```sh
 ./gradlew run
-```
-
-### Building & Running
-
-To build or run the project, use one of the following tasks:
-
-| Task                                    | Description                                                          |
-| -----------------------------------------|---------------------------------------------------------------------- |
-| `./gradlew test`                        | Run the tests                                                        |
-| `./gradlew build`                       | Build everything                                                     |
-| `./gradlew buildFatJar`                 | Build an executable JAR of the server with all dependencies included |
-| `./gradlew buildImage`                  | Build the docker image to use with the fat JAR                       |
-| `./gradlew publishImageToLocalRegistry` | Publish the docker image locally                                     |
-| `./gradlew run`                         | Run the server                                                       |
-| `./gradlew runDocker`                   | Run using the local docker image                                     |
-
-
-### package manager
-
-add a plugin for java and kotlin.
-
-```sh
-asdf plugin add kotlin java
-asdf plugin list all kotlin # v2.3.0
-asdf plugin install kotlin 2.3.0
-
-asdf plugin list all java
-asdf plugin install java # temurin-21.0.9+10.0.LTS
-asdf install java temurin-21.0.9+10.0.LTS
-```
-
-set it.
-
-```sh
-asdf set java temurin-21.0.9+10.0.LTS
-asdf set kotlin 2.3.0
-```
-
-check it.
-
-```sh
-asdf current java
-asdf current kotlin
+./gradlew build
+./gradlew test
 ```
 
 ## reference

@@ -1,5 +1,5 @@
 zig 0.15.1
 golang 1.25.5
-kotlin 2.3.0
+kotlin 2.2.0
 java temurin-21.0.9+10.0.LTS
 spring-boot 4.0.0
